@@ -1,0 +1,22 @@
+FROM python:3.12
+
+# Install MySQL client and development libraries
+RUN apt-get update && apt-get install -y \
+    default-libmysqlclient-dev \
+    pkg-config \
+    build-essential \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+
+# Copy the entire project
+COPY . .
+
+# Install Python dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Change to backend directory
+WORKDIR /app/backend
+
+# Set startup command
+CMD ["gunicorn", "myWeb.wsgi:application", "--bind", "0.0.0.0:$PORT"]
