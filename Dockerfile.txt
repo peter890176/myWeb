@@ -1,28 +1,32 @@
 FROM python:3.11-slim
 
-# Prevent Python from writing .pyc files and buffering stdout/stderr
+# Environment setup
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-# Install system-level dependencies required by mysqlclient
+# Install mysqlclient build dependencies
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     default-libmysqlclient-dev \
     gcc \
     && rm -rf /var/lib/apt/lists/*
 
-# Set the working directory for the application
+# Set working directory
 WORKDIR /app
 
-# Copy and install Python dependencies from requirements.txt
+# Copy requirements.txt from root directory and install packages
 COPY requirements.txt .
-RUN pip install --upgrade pip && pip install -r requirements.txt
+RUN pip install --upgrade pip
+RUN pip install -r requirements.txt
 
-# Copy backend source code into the container
-COPY backend/ backend/
+# Copy backend source code into Docker
+COPY backend backend
 
-# Collect Django static files for deployment
-RUN python backend/manage.py collectstatic --noinput
+# Set working directory to backend
+WORKDIR /app/backend
 
-# Start Gunicorn server, explicitly setting the working directory
-CMD ["gunicorn", "api.wsgi:application", "--bind", "0.0.0.0:8000", "--chdir", "backend"]
+# Collect static files (for Django)
+RUN python manage.py collectstatic --noinput
+
+# Start Django app with Gunicorn
+CMD ["gunicorn", "api.wsgi:application", "--bind", "0.0.0.0:8000"]
