@@ -31,7 +31,11 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 SECRET_KEY = 'django-insecure-zviu59rj!ijip73_a0bo#jss4df8@o08^h9k4gq)l^r44y2a=k'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
+
+SECURE_SSL_REDIRECT = True  
+SESSION_COOKIE_SECURE = True  
+CSRF_COOKIE_SECURE = True  
 
 ALLOWED_HOSTS = ['myweb-peterli.up.railway.app','localhost',]
 
