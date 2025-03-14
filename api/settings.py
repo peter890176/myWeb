@@ -35,11 +35,14 @@ SECRET_KEY = 'django-insecure-zviu59rj!ijip73_a0bo#jss4df8@o08^h9k4gq)l^r44y2a=k
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-SECURE_SSL_REDIRECT = True  
+SECURE_SSL_REDIRECT = False
 SESSION_COOKIE_SECURE = True  
 CSRF_COOKIE_SECURE = True  
 
-ALLOWED_HOSTS = ['myweb-peterli.up.railway.app','localhost',]
+ALLOWED_HOSTS = ['myweb-peterli.up.railway.app',
+                'myweb-peterli-test.up.railway.app',
+                'localhost',
+]
 
 
 # Application definition
@@ -56,11 +59,11 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -69,6 +72,7 @@ MIDDLEWARE = [
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "https://myweb-peterli.netlify.app",
+    
 ]
 
 ROOT_URLCONF = 'api.urls'
