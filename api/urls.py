@@ -17,8 +17,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from resume.views import resume
+from django.views.generic import RedirectView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/resume/', resume, name='resume'),
+    path('', RedirectView.as_view(url='/api/resume/'), name='home'),
 ]

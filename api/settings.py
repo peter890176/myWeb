@@ -21,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Static files configuration
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
-STATIC_FILES_DIRS = [
+STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
 
@@ -33,7 +33,7 @@ STATIC_FILES_DIRS = [
 SECRET_KEY = 'django-insecure-zviu59rj!ijip73_a0bo#jss4df8@o08^h9k4gq)l^r44y2a=k'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 SECURE_SSL_REDIRECT = False
 SESSION_COOKIE_SECURE = True  
@@ -42,6 +42,7 @@ CSRF_COOKIE_SECURE = True
 ALLOWED_HOSTS = ['myweb-peterli.up.railway.app',
                 'myweb-peterli-test.up.railway.app',
                 'localhost',
+                '127.0.0.1',
 ]
 
 
