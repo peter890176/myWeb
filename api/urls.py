@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from resume.views import resume
+from resume.views import resume, project_detail
 from django.views.generic import RedirectView
 
 from django.conf import settings
@@ -25,6 +25,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/resume/', resume, name='resume'),
+    path('api/project/<int:id>/', project_detail, name='project_detail'),
     path('', RedirectView.as_view(url='/api/resume/'), name='home'),
 ]
 
