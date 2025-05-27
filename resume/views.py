@@ -122,7 +122,7 @@ def project_detail(request, id):
     host = request.get_host()
     protocol = 'https' if request.is_secure() else 'http'
     base_url = f"{protocol}://{host}"
-    
+     
     # Project details data
     projects = {
         1: {
