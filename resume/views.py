@@ -23,19 +23,19 @@ def resume(request):
         "portfolio": [
             {
                 "id": 1,
-                "title": "Mock Stack Overflow",
-                "description": "A comprehensive Stack Overflow clone built with MERN stack, featuring question, answer, and voting functionality",
-                "technologies": ["React", "Node.js", "Express", "MongoDB"],
+                "title": "Full-Stack E-commerce Platform (SF Shop)",
+                "description": "A responsive, feature-rich e-commerce platform with a modern frontend and robust RESTful backend.",
+                "technologies": ["React", "Node.js", "MongoDB", "Express", "Tailwind CSS", "JWT"],
                 "image": f"{base_url}/static/images/project1.jpg",
-                "link": "#"
+                "link": "https://sfshop.netlify.app/"
             },
             {
                 "id": 2,
-                "title": "Image processing application in Java",
-                "description": "Java-based image processing application with multiple filters and transformations, built using OOP principles and design patterns",
-                "technologies": ["Java", "Swing GUI", "OOP", "Design Patterns"],
+                "title": "Personal Portfolio Website",
+                "description": "A responsive personal portfolio website built with Django backend and React frontend, showcasing projects and skills",
+                "technologies": ["Django", "React",  "Axios", "Netlify", "Railway"],
                 "image": f"{base_url}/static/images/project2.jpg",
-                "link": "#"
+                "link": "https://myweb-peterli.netlify.app/"
             },
             {
                 "id": 3,
@@ -55,10 +55,18 @@ def resume(request):
             },
             {
                 "id": 5,
-                "title": "Personal Portfolio Website",
-                "description": "A responsive personal portfolio website built with Django backend and React frontend, showcasing projects and skills",
-                "technologies": ["Django", "React",  "Axios", "Netlify", "Railway"],
+                "title": "Image processing application in Java",
+                "description": "Java-based image processing application with multiple filters and transformations, built using OOP principles and design patterns",
+                "technologies": ["Java", "Swing GUI", "OOP", "Design Patterns"],
                 "image": f"{base_url}/static/images/project5.jpg",
+                "link": "#"
+            },
+            {
+                "id": 6,
+                "title": "Mock Stack Overflow",
+                "description": "A comprehensive Stack Overflow clone built with MERN stack, featuring question, answer, and voting functionality",
+                "technologies": ["React", "Node.js", "Express", "MongoDB"],
+                "image": f"{base_url}/static/images/project6.jpg",
                 "link": "#"
             }
         ],
@@ -127,42 +135,44 @@ def project_detail(request, id):
     projects = {
         1: {
             "id": 1,
-            "title": "Mock Stack Overflow",
-            "description": "A comprehensive Stack Overflow clone built with MERN stack, featuring question, answer, and voting functionality",
-            "fullDescription": "A comprehensive web application that replicates Stack Overflow's functionality, allowing users to ask programming questions, provide answers, and participate in community voting. Built using the MERN stack (MongoDB, Express.js, React, Node.js) with a focus on responsive design and robust testing. Foundation Of Software Development Team Project(with John Jacoby).",
-            "technologies": ["JavaScript", "React", "Node.js", "Express.js", "MongoDB", "Mongoose", "Axios", "RESTful API", "Jest", "Cypress"],
+            "title": "Full-Stack E-commerce Platform (SF Shop)",
+            "description": "A responsive, feature-rich e-commerce platform with a modern frontend and robust RESTful backend, delivering a seamless shopping experience through optimized performance, secure authentication, and scalable architecture.",
+            "fullDescription": "A responsive, feature-rich e-commerce platform with a modern frontend and robust RESTful backend, delivering a seamless shopping experience through optimized performance, secure authentication, and scalable architecture.",
+            "technologies": ["React", "JavaScript", "React Router", "Tailwind CSS", "Axios", "Node.js", "Express.js", "MongoDB", "Mongoose", "JWT", "bcrypt", "CORS", "Docker", "Netlify", "Railway"],
             "image": f"{base_url}/static/images/project1_demo.jpg",
             "features": [
-                "User registration and authentication with session management",
-                "Question posting with categories",
-                "Answer submission with formatting",
-                "Upvoting/downvoting system for content",
-                "Responsive UI for various devices",
-                "RESTful API architecture",
-                "Comprehensive testing suite with Jest and Cypress",
-                "Docker containerization for deployment"
+                "Developed a responsive frontend using React, React Router, and Tailwind CSS, implementing product catalog, category filtering, product details, and a state-managed shopping cart with Context API.",
+                "Optimized frontend performance using useMemo, useCallback, and React.memo to minimize re-renders, enhancing stability and user experience.",
+                "Built a secure RESTful API with Node.js, Express.js, and MongoDB, supporting user management, product catalog, and order processing.",
+                "Implemented JWT-based authentication with bcrypt for password encryption and role-based access control (user vs. admin), ensuring secure data exchange via Axios.",
+                "Designed MongoDB schemas with Mongoose for complex data relationships, adding server-side pagination and database indexing to improve API scalability and performance.",
+                "Engineered core e-commerce logic, including real-time stock updates and precise price calculations handling discounts and floating-point rounding.",
+                "Containerized the application with Docker and set up CI/CD pipelines for automated deployment on Netlify (frontend) and Railway (backend), demonstrating DevOps proficiency.",
+                "Automated development workflows with Node.js scripts for database seeding and initial admin user setup, streamlining testing and deployment."
             ],
-            "link": "#",
-            "github": "https://github.com/peter890176/courseAssignments/tree/main/courseAssignments/graduate/foundationOfSoftwareDevelopment"
+            "link": "https://sfshop.netlify.app/",
+            "github": "https://github.com/peter890176/sf2"
         },
         2: {
             "id": 2,
-            "title": "Image processing application in Java",
-            "description": "Java-based image processing application with multiple filters and transformations, built using OOP principles and design patterns",
-            "fullDescription": "An image processing application built in Java that allows users to apply various filters and transformations to images. The application was designed using object-oriented programming principles and design patterns to ensure maintainability and extensibility. Programming Design Paradigm Course Team Project(with Vasant Tholappa).",
-            "technologies": ["Java", "OOP", "Design Patterns", "Swing GUI", "Image Processing"],
+            "title": "Personal Portfolio Website",
+            "description": "A responsive personal portfolio website built with Django backend and React frontend, showcasing projects and skills",
+            "fullDescription": "This personal portfolio website demonstrates modern web development practices with a decoupled architecture. The backend is built with Django and Django REST Framework to serve resume and project data through a RESTful API. The frontend is developed with React, featuring responsive design for optimal viewing on all devices. The project implements dynamic data loading, smooth navigation, and detailed project showcases.",
+            "technologies": ["Django", "DRF", "React", "JavaScript", "CSS", "HTML", "Axios", "React Router", "Railway", "Netlify"],
             "image": f"{base_url}/static/images/project2_demo.jpg",
-            "imageCaption": "Figure: This user interface demonstrates the before and after comparison of image color correction along with RGB distribution graphs",
             "features": [
-                "Image loading and saving",
-                "Multiple filter options (grayscale, sepia, blur, etc.)",
-                "Image transformations (rotate, flip, resize)",
-                "Batch processing",
-                "User-friendly GUI",
-                "Undo/redo functionality"
+                "Decoupled architecture with Django backend and React frontend",
+                "RESTful API for resume and project data",
+                "Responsive design for all device types",
+                "Dynamic content loading with Axios",
+                "Smooth scrolling navigation between sections",
+                "Detailed project showcase pages",
+                "Education and certification displays",
+                "Social media integration",
+                "Deployed with Netlify (frontend) and Railway (backend)"
             ],
-            "link": "#",
-            "github": "https://github.com/peter890176/courseAssignments/tree/main/courseAssignments/graduate/programmingDesignParadigm/assignment6"
+            "link": "https://myweb-peterli.netlify.app/",
+            "github": "https://github.com/peter890176/myWeb-Frontend"
         },
         3: {
             "id": 3,
@@ -204,24 +214,42 @@ def project_detail(request, id):
         },
         5: {
             "id": 5,
-            "title": "Personal Portfolio Website",
-            "description": "A responsive personal portfolio website built with Django backend and React frontend, showcasing projects and skills",
-            "fullDescription": "This personal portfolio website demonstrates modern web development practices with a decoupled architecture. The backend is built with Django and Django REST Framework to serve resume and project data through a RESTful API. The frontend is developed with React, featuring responsive design for optimal viewing on all devices. The project implements dynamic data loading, smooth navigation, and detailed project showcases.",
-            "technologies": ["Django", "DRF", "React", "JavaScript", "CSS", "HTML", "Axios", "React Router", "Railway", "Netlify"],
+            "title": "Image processing application in Java",
+            "description": "Java-based image processing application with multiple filters and transformations, built using OOP principles and design patterns",
+            "fullDescription": "An image processing application built in Java that allows users to apply various filters and transformations to images. The application was designed using object-oriented programming principles and design patterns to ensure maintainability and extensibility. Programming Design Paradigm Course Team Project(with Vasant Tholappa).",
+            "technologies": ["Java", "OOP", "Design Patterns", "Swing GUI", "Image Processing"],
             "image": f"{base_url}/static/images/project5_demo.jpg",
+            "imageCaption": "Figure: This user interface demonstrates the before and after comparison of image color correction along with RGB distribution graphs",
             "features": [
-                "Decoupled architecture with Django backend and React frontend",
-                "RESTful API for resume and project data",
-                "Responsive design for all device types",
-                "Dynamic content loading with Axios",
-                "Smooth scrolling navigation between sections",
-                "Detailed project showcase pages",
-                "Education and certification displays",
-                "Social media integration",
-                "Deployed with Netlify (frontend) and Railway (backend)"
+                "Image loading and saving",
+                "Multiple filter options (grayscale, sepia, blur, etc.)",
+                "Image transformations (rotate, flip, resize)",
+                "Batch processing",
+                "User-friendly GUI",
+                "Undo/redo functionality"
             ],
             "link": "#",
-            "github": "https://github.com/peter890176/myWeb-Frontend"
+            "github": "https://github.com/peter890176/courseAssignments/tree/main/courseAssignments/graduate/programmingDesignParadigm/assignment6"
+        },
+        6: {
+            "id": 6,
+            "title": "Mock Stack Overflow",
+            "description": "A comprehensive Stack Overflow clone built with MERN stack, featuring question, answer, and voting functionality",
+            "fullDescription": "A comprehensive web application that replicates Stack Overflow's functionality, allowing users to ask programming questions, provide answers, and participate in community voting. Built using the MERN stack (MongoDB, Express.js, React, Node.js) with a focus on responsive design and robust testing. Foundation Of Software Development Team Project(with John Jacoby).",
+            "technologies": ["JavaScript", "React", "Node.js", "Express.js", "MongoDB", "Mongoose", "Axios", "RESTful API", "Jest", "Cypress"],
+            "image": f"{base_url}/static/images/project6_demo.jpg",
+            "features": [
+                "User registration and authentication with session management",
+                "Question posting with categories",
+                "Answer submission with formatting",
+                "Upvoting/downvoting system for content",
+                "Responsive UI for various devices",
+                "RESTful API architecture",
+                "Comprehensive testing suite with Jest and Cypress",
+                "Docker containerization for deployment"
+            ],
+            "link": "#",
+            "github": "https://github.com/peter890176/courseAssignments/tree/main/courseAssignments/graduate/foundationOfSoftwareDevelopment"
         }
     }
     
